@@ -1,0 +1,338 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #f8f9fa;
+    --accent-color: #e9ecef;
+    --text-color: #333333;
+    --light-text: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Header */
+header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--text-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.btn-auth {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--text-color);
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-auth:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background: radial-gradient(circle at top left, #ffffff, #f0f0f0);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    background-color: #111;
+    color: #fff;
+    padding: 0.8rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Services */
+.services-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--primary-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.service-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+/* Forms */
+.form-container {
+    max-width: 500px;
+    margin: 8rem auto 4rem;
+    background: var(--primary-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #666;
+}
+
+/* Responsive */
+/* Responsive & Mobile Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transition: right 0.4s ease-in-out;
+        padding-top: 2rem;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        margin: 6rem 1rem 2rem;
+        /* Reduced top margin, added side margin */
+        padding: 1.5rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        padding: 0 1rem !important;
+        /* Force side padding */
+    }
+
+    .page-header {
+        padding: 6rem 1rem 2rem !important;
+        /* Adjust header padding for fixed nav */
+    }
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Toggle Animation */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
